@@ -71,6 +71,14 @@ public class StreamAPIs {
         // Store the Result
         List<Double> streamList = myNumberList.stream().filter(isEvenFunction).map(toDoubleFunction).collect(Collectors.toList());
         System.out.println("Method 9: Printing Double List: "+streamList);
+
+        //Method 10: Listing the first Even
+        Integer first = myNumberList.stream()
+                        .filter(isEvenFunction)
+                        .peek(n-> System.out.println("Peek Even Number: " +n))
+                        .findFirst()
+                        .orElse(null);
+        System.out.println("Method 10: First Even Number :"+first);
     }
 
 }
