@@ -1,13 +1,11 @@
 package com.bridgelabz.stream;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static java.util.Comparator.*;
 
@@ -108,6 +106,12 @@ public class StreamAPIs {
         boolean oneEven = myNumberList.stream().anyMatch(isEvenFunction);
         boolean noneMultOfSix = myNumberList.stream().noneMatch(i -> i > 0 && i % 6 == 0);
         System.out.println("AllEven : "+allEven+ " OneEven : "+oneEven+ " NoneMultOfSix : "+noneMultOfSix);
+
+        //Method 15: Sort the number stream in Ascending Order
+        List<Integer> sort = myNumberList.stream()
+                             .sorted((n1, n2) -> n1.compareTo(n2))
+                             .collect(Collectors.toList());
+        System.out.println("Ascending Order: "+sort);
     }
 
 }
