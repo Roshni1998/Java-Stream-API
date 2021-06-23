@@ -69,7 +69,7 @@ public class StreamAPIs {
 
         //Method 9: Process the Stream, Apply Operations on the Stream and then
         // Store the Result
-        List<Double> streamList = myNumberList.stream().map(toDoubleFunction).collect(Collectors.toList());
+        List<Double> streamList = myNumberList.stream().filter(isEvenFunction).map(toDoubleFunction).collect(Collectors.toList());
         System.out.println("Method 9: Printing Double List: "+streamList);
     }
 
