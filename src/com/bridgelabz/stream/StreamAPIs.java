@@ -96,6 +96,12 @@ public class StreamAPIs {
                       .max(Comparator.comparing(Integer::intValue))
                       .orElse(null);
         System.out.println("Method 12: Max Even Number : "+max);
+
+        //Method 13: Sum, Count and Average of numbers
+        Integer sum = myNumberList.stream()
+                      .reduce(0, Integer::sum);
+        long count = myNumberList.stream().count();
+        System.out.println("Method 13: Average of " +sum+"/"+count+" = "+sum/count);
     }
 
 }
