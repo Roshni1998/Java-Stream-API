@@ -1,12 +1,15 @@
 package com.bridgelabz.stream;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+
+import static java.util.Comparator.*;
 
 public class StreamAPIs {
     public static void main (String []args){
@@ -79,6 +82,20 @@ public class StreamAPIs {
                         .findFirst()
                         .orElse(null);
         System.out.println("Method 10: First Even Number :"+first);
+
+        //Method 11: Minimum Even Numbers
+        Integer min = myNumberList.stream()
+                      .filter(isEvenFunction)
+                      .min((n1, n2) -> n1-n2)
+                      .orElse(null);
+        System.out.println("Method 11: Min Even Number : "+min);
+
+        //Method 12: Maximum Even Numbers
+        Integer max = myNumberList.stream()
+                      .filter(isEvenFunction)
+                      .max(Comparator.comparing(Integer::intValue))
+                      .orElse(null);
+        System.out.println("Method 12: Max Even Number : "+max);
     }
 
 }
